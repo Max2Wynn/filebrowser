@@ -106,11 +106,11 @@ async function postResources(url, content = "", overwrite = false, onupload) {
   }
 
 
-  let requestUrl = `${baseURL}/api/resources${url}?override=${overwrite}`;
-
-  if (queryParams.size !== 0) {
-    requestUrl += `?template=${queryParams[0]}`
-  }
+  // let requestUrl = `${baseURL}/api/resources${url}?override=${overwrite}`;
+  //
+  // if (queryParams.size !== 0) {
+  //   requestUrl += `?template=${queryParams[0]}`
+  // }
 
 
 
@@ -119,9 +119,9 @@ async function postResources(url, content = "", overwrite = false, onupload) {
     let request = new XMLHttpRequest();
     request.open(
       "POST",
-        requestUrl,
+        // requestUrl,
 
-        // createURL(`api/resources${url}`, {...queryParams, "override": overwrite}, false),
+        createURL(`api/resources${url}`, {...queryParams, "override": overwrite}, false),
       true
     );
     request.setRequestHeader("X-Auth", store.state.jwt);
