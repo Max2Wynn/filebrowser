@@ -109,7 +109,9 @@ async function postResources(url, content = "", overwrite = false, onupload) {
     let request = new XMLHttpRequest();
     request.open(
       "POST",
-      createURL(`api/resources${url}`, {...queryParams, "override": overwrite}, false),
+        `${baseURL}/api/resources${url}?override=${overwrite}`,
+
+        // createURL(`api/resources${url}`, {...queryParams, "override": overwrite}, false),
       true
     );
     request.setRequestHeader("X-Auth", store.state.jwt);
