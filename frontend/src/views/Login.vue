@@ -2,7 +2,8 @@
   <div id="login" :class="{ recaptcha: recaptcha }">
     <form @submit="submit">
       <img :src="logoURL" alt="File Browser" />
-      <h1>{{ name }}</h1>
+<!--      <h1>{{ name }}</h1>-->
+      <h1>信息模型管理文件系统</h1>
       <div v-if="error !== ''" class="wrong">{{ error }}</div>
 
       <input
