@@ -105,6 +105,12 @@ async function postResources(url, content = "", overwrite = false, onupload) {
     bufferContent = await new Response(content).arrayBuffer();
   }
 
+  for (const key in queryParams) {
+    url.searchParams.set(key, queryParams[key]);
+  }
+
+
+
   return new Promise((resolve, reject) => {
     let request = new XMLHttpRequest();
     request.open(
