@@ -47,12 +47,12 @@
           />
         </template>
 
-        <action
-          v-if="headerButtons.shell"
-          icon="code"
-          :label="$t('buttons.shell')"
-          @action="$store.commit('toggleShell')"
-        />
+<!--        <action-->
+<!--          v-if="headerButtons.shell"-->
+<!--          icon="code"-->
+<!--          :label="$t('buttons.shell')"-->
+<!--          @action="$store.commit('toggleShell')"-->
+<!--        />-->
         <action
           :icon="viewIcon"
           :label="$t('buttons.switchView')"
