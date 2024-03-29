@@ -105,9 +105,13 @@ async function postResources(url, content = "", overwrite = false, onupload) {
     bufferContent = await new Response(content).arrayBuffer();
   }
 
-  for (const key in queryParams) {
-    url.searchParams.set(key, queryParams[key]);
+
+  let requestUrl = `${baseURL}/api/resources${url}?override=${overwrite}`;
+
+  if (queryParams.size !== 0) {
+    requestUrl += `?template=${queryParams[0]}`
   }
+
 
 
 
@@ -115,7 +119,7 @@ async function postResources(url, content = "", overwrite = false, onupload) {
     let request = new XMLHttpRequest();
     request.open(
       "POST",
-        `${baseURL}/api/resources${url}?override=${overwrite}`,
+        requestUrl,
 
         // createURL(`api/resources${url}`, {...queryParams, "override": overwrite}, false),
       true
