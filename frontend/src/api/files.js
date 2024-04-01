@@ -111,7 +111,7 @@ async function postResources(url, content = "", overwrite = false, onupload) {
   let requestUrl = `${baseURL}/api/resources${url}?override=${overwrite}`;
 
   if (queryParams.size !== 0) {
-    requestUrl += `&template=${queryParams.get("template")}`
+    requestUrl += `&template=${queryParams["template"]}`
   }
 
 
