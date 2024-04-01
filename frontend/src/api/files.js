@@ -121,6 +121,7 @@ async function postResources(url, content = "", overwrite = false, onupload) {
       "POST",
         // requestUrl,
 
+        // `${baseURL}/api/resources${url}?override=${overwrite}`,
         createURL(`api/resources${url}`, {...queryParams, "override": overwrite}, false),
       true
     );
