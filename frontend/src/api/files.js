@@ -105,11 +105,13 @@ async function postResources(url, content = "", overwrite = false, onupload) {
     bufferContent = await new Response(content).arrayBuffer();
   }
 
+  console.log(queryParams)
+
 
   let requestUrl = `${baseURL}/api/resources${url}?override=${overwrite}`;
 
   if (queryParams.size !== 0) {
-    requestUrl += `&template=${queryParams[0]}`
+    requestUrl += `&template=${queryParams.get("template")}`
   }
 
 
