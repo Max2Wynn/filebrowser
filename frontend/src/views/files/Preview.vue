@@ -58,6 +58,7 @@
     <template v-else>
       <div class="preview">
         <ExtendedImage v-if="req.type == 'image'" :src="raw"></ExtendedImage>
+        <model-fbx class="pdf" v-else-if="req.extension.toLowerCase() == '.fbx'" :src="raw" backgroundColor="black"></model-fbx>
         <audio
           v-else-if="req.type == 'audio'"
           ref="player"
@@ -153,8 +154,9 @@ import throttle from "lodash.throttle";
 import HeaderBar from "@/components/header/HeaderBar.vue";
 import Action from "@/components/header/Action.vue";
 import ExtendedImage from "@/components/files/ExtendedImage.vue";
+import { ModelFbx } from 'vue-3d-model';
 
-const mediaTypes = ["image", "video", "audio", "blob"];
+const mediaTypes = ["image", "video", "audio", "blob", "fbx"];
 
 export default {
   name: "preview",
@@ -162,6 +164,7 @@ export default {
     HeaderBar,
     Action,
     ExtendedImage,
+    ModelFbx
   },
   data: function () {
     return {
@@ -354,4 +357,6 @@ export default {
     },
   },
 };
+
+
 </script>
