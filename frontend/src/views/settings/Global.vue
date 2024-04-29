@@ -27,22 +27,9 @@
             />
           </div>
 
-          <h3>{{ $t("settings.rules") }}</h3>
-          <p class="small">{{ $t("settings.globalRules") }}</p>
-          <rules :rules.sync="settings.rules" />
 
-          <div v-if="isExecEnabled">
-            <h3>{{ $t("settings.executeOnShell") }}</h3>
-            <p class="small">{{ $t("settings.executeOnShellDescription") }}</p>
-            <input
-              class="input input--block"
-              type="text"
-              placeholder="bash -c, cmd /c, ..."
-              v-model="settings.shell"
-            />
-          </div>
 
-          <h3>{{ $t("settings.branding") }}</h3>
+          <h3>主题</h3>
 
           <p>
             <input
@@ -82,9 +69,7 @@
           </p>
 
           <p>
-            <label for="branding-files">{{
-              $t("settings.brandingDirectoryPath")
-            }}</label>
+            <label for="branding-files">路径</label>
             <input
               class="input input--block"
               type="text"
@@ -94,8 +79,6 @@
           </p>
 
           <h3>{{ $t("settings.tusUploads") }}</h3>
-
-          <p class="small">{{ $t("settings.tusUploadsHelp") }}</p>
 
           <div class="tusConditionalSettings">
             <p>
