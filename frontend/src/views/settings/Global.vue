@@ -44,15 +44,6 @@
 
           <h3>{{ $t("settings.branding") }}</h3>
 
-          <i18n path="settings.brandingHelp" tag="p" class="small">
-            <a
-              class="link"
-              target="_blank"
-              href="https://filebrowser.org/configuration/custom-branding"
-              >{{ $t("settings.documentation") }}</a
-            >
-          </i18n>
-
           <p>
             <input
               type="checkbox"
@@ -133,12 +124,10 @@
             </p>
           </div>
 
-          <h3>{{ $t("settings.onlyOffice") }}</h3>
+          <h3>OFFICE</h3>
 
           <p>
-            <label for="onlyoffice-url">{{
-              $t("settings.onlyOfficeUrl")
-            }}</label>
+            <label for="onlyoffice-url">URL</label>
             <input
               class="input input--block"
               type="text"
@@ -147,9 +136,7 @@
             />
           </p>
           <p>
-            <label for="onlyoffice-jwt">{{
-              $t("settings.onlyOfficeJwtSecret")
-            }}</label>
+            <label for="onlyoffice-jwt">JWT</label>
             <input
               class="input input--block"
               type="text"
@@ -159,7 +146,7 @@
           </p>
           <p>
             <input type="checkbox" v-model="settings.onlyoffice.fullViewport" />
-            {{ $t("settings.onlyOfficeFullViewport") }}
+            View
           </p>
         </div>
 
@@ -199,52 +186,7 @@
       </form>
     </div>
 
-    <div class="column">
-      <form v-if="isExecEnabled" class="card" @submit.prevent="save">
-        <div class="card-title">
-          <h2>{{ $t("settings.commandRunner") }}</h2>
-        </div>
 
-        <div class="card-content">
-          <i18n path="settings.commandRunnerHelp" tag="p" class="small">
-            <code>FILE</code>
-            <code>SCOPE</code>
-            <a
-              class="link"
-              target="_blank"
-              href="https://filebrowser.org/configuration/command-runner"
-              >{{ $t("settings.documentation") }}</a
-            >
-          </i18n>
-
-          <div
-            v-for="command in settings.commands"
-            :key="command.name"
-            class="collapsible"
-          >
-            <input :id="command.name" type="checkbox" />
-            <label :for="command.name">
-              <p>{{ capitalize(command.name) }}</p>
-              <i class="material-icons">arrow_drop_down</i>
-            </label>
-            <div class="collapse">
-              <textarea
-                class="input input--block input--textarea"
-                v-model.trim="command.value"
-              ></textarea>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-action">
-          <input
-            class="button button--flat"
-            type="submit"
-            :value="$t('buttons.update')"
-          />
-        </div>
-      </form>
-    </div>
   </div>
 </template>
 

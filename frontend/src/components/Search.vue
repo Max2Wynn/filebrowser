@@ -25,28 +25,28 @@
 
     <div id="result" ref="result">
       <div>
-        <template v-if="isEmpty">
-          <p>{{ text }}</p>
+<!--        <template v-if="isEmpty">-->
+<!--          <p>{{ text }}</p>-->
 
-          <template v-if="value.length === 0">
-            <div class="boxes">
-              <h3>{{ $t("search.types") }}</h3>
-              <div>
-                <div
-                  tabindex="0"
-                  v-for="(v, k) in boxes"
-                  :key="k"
-                  role="button"
-                  @click="init('type:' + k)"
-                  :aria-label="$t('search.' + v.label)"
-                >
-                  <i class="material-icons">{{ v.icon }}</i>
-                  <p>{{ $t("search." + v.label) }}</p>
-                </div>
-              </div>
-            </div>
-          </template>
-        </template>
+<!--          <template v-if="value.length === 0">-->
+<!--            <div class="boxes">-->
+<!--              <h3>{{ $t("search.types") }}</h3>-->
+<!--              <div>-->
+<!--                <div-->
+<!--                  tabindex="0"-->
+<!--                  v-for="(v, k) in boxes"-->
+<!--                  :key="k"-->
+<!--                  role="button"-->
+<!--                  @click="init('type:' + k)"-->
+<!--                  :aria-label="$t('search.' + v.label)"-->
+<!--                >-->
+<!--                  <i class="material-icons">{{ v.icon }}</i>-->
+<!--                  <p>{{ $t("search." + v.label) }}</p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </template>-->
+<!--        </template>-->
         <ul v-show="results.length > 0">
           <li v-for="(s, k) in filteredResults" :key="k">
             <router-link @click.native="close" :to="s.url">
