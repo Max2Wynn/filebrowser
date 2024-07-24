@@ -266,8 +266,7 @@ export default {
   },
   methods: {
     get_image() {
-        return "http://172.20.10.2:8083/#model=" + this.raw;
-
+        return "http://127.0.0.1:8083/#model=" + this.raw;
     },
     // fetchExternalHTML() {
     //       axios.get('website/index.html', {headers: {
