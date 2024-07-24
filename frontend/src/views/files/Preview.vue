@@ -266,7 +266,7 @@ export default {
   },
   methods: {
     get_image() {
-        return "http://172.20.10.2:8082/#model=" + this.raw;
+        return "http://172.20.10.2:8083/#model=" + this.raw;
 
     },
     // fetchExternalHTML() {
