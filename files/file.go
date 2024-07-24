@@ -247,6 +247,24 @@ func (i *FileInfo) detectType(modify, saveContent, readHeader bool) error {
 	case strings.HasSuffix(mimetype, "fbx"):
 		i.Type = "fbx"
 		return nil
+	case strings.HasSuffix(mimetype, "ifc"):
+		i.Type = "ifc"
+		return nil
+	case strings.HasSuffix(mimetype, "glb"):
+		i.Type = "glb"
+		return nil
+	case strings.HasSuffix(mimetype, "gltf"):
+		i.Type = "gltf"
+		return nil
+// 	case strings.HasSuffix(mimetype, "bim"):
+// 		i.Type = "bim"
+// 		return nil
+	case strings.HasSuffix(mimetype, "obj"):
+		i.Type = "obj"
+		return nil
+// 	case strings.HasSuffix(mimetype, "3dm"):
+// 		i.Type = "3dm"
+// 		return nil
 	case (strings.HasPrefix(mimetype, "text") || !isBinary(buffer)) && i.Size <= 10*1024*1024: // 10 MB
 		i.Type = "text"
 

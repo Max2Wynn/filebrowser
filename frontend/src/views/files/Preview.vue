@@ -79,19 +79,21 @@
         <!--            src="http://172.20.10.2:8081/website#model="-->
         <!--            src="../../轻量化引擎/website#model=assets/models/solids.obj,assets/models/solids.mtl"-->
         <iframe
-            v-else-if="req.extension.toLowerCase() == '.fbx' ||
-                      req.extension.toLowerCase() == '.ifc'  ||
-                      req.extension.toLowerCase() == '.glb'  ||
-                      req.extension.toLowerCase() == '.gltf'  ||
-                      req.extension.toLowerCase() == '.dae'  ||
-                      req.extension.toLowerCase() == '.bim'  ||
-                      req.extension.toLowerCase() == '.3dm'  ||
-                      req.extension.toLowerCase() == '.obj'"
-            :src="get_image()"
-            width="100%"
-            depth="100%"
-            class="pdf"
-            style="border:1px solid #eeeeee;">
+          v-else-if="
+            req.extension.toLowerCase() === '.ifc' ||
+            req.extension.toLowerCase() === '.fbx' ||
+            req.extension.toLowerCase() === '.glb' ||
+            req.extension.toLowerCase() === '.gltf' ||
+            // req.extension.toLowerCase() === '.dae' ||
+            // req.extension.toLowerCase() === '.bim' ||
+            // req.extension.toLowerCase() === '.3dm'  ||
+            req.extension.toLowerCase() === '.obj'"
+          :src="get_image()"
+          width="100%"
+          depth="100%"
+          class="pdf"
+          style="border: 1px solid #eeeeee"
+        >
         </iframe>
 
         <audio
@@ -192,7 +194,7 @@ import ExtendedImage from "@/components/files/ExtendedImage.vue";
 // import { ModelFbx } from 'vue-3d-model';
 
 
-const mediaTypes = ["image", "video", "audio", "blob", "fbx", "ifc", "gltf", "glb"];
+const mediaTypes = ["image", "video", "audio", "blob", "fbx", "ifc", "gltf", "glb", "obj"];
 
 export default {
   name: "preview",
@@ -266,7 +268,8 @@ export default {
   },
   methods: {
     get_image() {
-        return "http://10.0.20.6:8083/#model=" + this.raw;
+        // return "http://10.0.20.6:8083/#model=" + this.raw;
+        return "http://58.87.96.22:8083/#model=" + this.raw;
     },
     // fetchExternalHTML() {
     //       axios.get('website/index.html', {headers: {
