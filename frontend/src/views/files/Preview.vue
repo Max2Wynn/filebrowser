@@ -268,8 +268,8 @@ export default {
   },
   methods: {
     get_image() {
-        // return "http://10.0.20.6:8083/#model=" + this.raw;
-        return "http://58.87.96.22:8083/#model=" + this.raw;
+        return "http://10.0.20.6:8083/#model=" + this.raw;
+        // return "http://58.87.96.22:8083/#model=" + this.raw;
     },
     // fetchExternalHTML() {
     //       axios.get('website/index.html', {headers: {
