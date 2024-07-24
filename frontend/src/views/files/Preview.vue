@@ -58,7 +58,42 @@
     <template v-else>
       <div class="preview">
         <ExtendedImage v-if="req.type == 'image'" :src="raw"></ExtendedImage>
-        <model-fbx class="pdf" v-else-if="req.extension.toLowerCase() == '.fbx'" :src="raw" backgroundColor="black"></model-fbx>
+<!--        <model-fbx class="pdf" v-else-if="req.extension.toLowerCase() == '.fbx'" :src="raw" backgroundColor="black"></model-fbx>-->
+
+<!--        <vue-friendly-iframe-->
+<!--            v-else-if="req.extension.toLowerCase() == '.fbx'"-->
+<!--            :src="172.20.10.2:8081/website#mode={raw}"-->
+<!--            class="pdf"-->
+<!--        >-->
+<!--        </vue-friendly-iframe>-->
+
+<!--        <div-->
+<!--            v-html="htmlContent"-->
+<!--            v-else-if="req.extension.toLowerCase() == '.fbx'"-->
+<!--            class="pdf"-->
+<!--        >-->
+
+<!--        </div>-->
+
+
+        <!--            src="http://172.20.10.2:8081/website#model="-->
+        <!--            src="../../轻量化引擎/website#model=assets/models/solids.obj,assets/models/solids.mtl"-->
+        <iframe
+            v-else-if="req.extension.toLowerCase() == '.fbx' ||
+                      req.extension.toLowerCase() == '.ifc'  ||
+                      req.extension.toLowerCase() == '.glb'  ||
+                      req.extension.toLowerCase() == '.gltf'  ||
+                      req.extension.toLowerCase() == '.dae'  ||
+                      req.extension.toLowerCase() == '.bim'  ||
+                      req.extension.toLowerCase() == '.3dm'  ||
+                      req.extension.toLowerCase() == '.obj'"
+            :src="get_image()"
+            width="100%"
+            depth="100%"
+            class="pdf"
+            style="border:1px solid #eeeeee;">
+        </iframe>
+
         <audio
           v-else-if="req.type == 'audio'"
           ref="player"
@@ -155,8 +190,11 @@ import HeaderBar from "@/components/header/HeaderBar.vue";
 import Action from "@/components/header/Action.vue";
 import ExtendedImage from "@/components/files/ExtendedImage.vue";
 import { ModelFbx } from 'vue-3d-model';
+import VueFriendlyIframe from 'vue-friendly-iframe';
+import axios from "axios";
 
-const mediaTypes = ["image", "video", "audio", "blob", "fbx"];
+
+const mediaTypes = ["image", "video", "audio", "blob", "fbx", "ifc", "gltf", "glb"];
 
 export default {
   name: "preview",
@@ -179,6 +217,7 @@ export default {
       autoPlay: false,
       previousRaw: "",
       nextRaw: "",
+      htmlContent: "",
     };
   },
   computed: {
@@ -228,6 +267,20 @@ export default {
     window.removeEventListener("keydown", this.key);
   },
   methods: {
+    get_image() {
+        return "http://172.20.10.2:8082/#model=" + this.raw;
+
+    },
+    fetchExternalHTML() {
+          axios.get('website/index.html', {headers: {
+                      // axios.get('http://172.20.10.2:8081/website/', {headers: {
+                  "Access-Control-Allow-Origin": "*"
+        }}).then(response => {
+              this.htmlContent = response.data;
+          }).catch(error => {
+              console.error('Error fetching external HTML:', error);
+          });
+    },
     deleteFile() {
       this.$store.commit("showHover", {
         prompt: "delete",
@@ -356,6 +409,9 @@ export default {
       window.open(this.downloadUrl);
     },
   },
+  // created() {
+  //     this.fetchExternalHTML();
+  // },
 };
 
 
