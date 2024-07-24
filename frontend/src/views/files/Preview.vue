@@ -189,9 +189,7 @@ import throttle from "lodash.throttle";
 import HeaderBar from "@/components/header/HeaderBar.vue";
 import Action from "@/components/header/Action.vue";
 import ExtendedImage from "@/components/files/ExtendedImage.vue";
-import { ModelFbx } from 'vue-3d-model';
-import VueFriendlyIframe from 'vue-friendly-iframe';
-import axios from "axios";
+// import { ModelFbx } from 'vue-3d-model';
 
 
 const mediaTypes = ["image", "video", "audio", "blob", "fbx", "ifc", "gltf", "glb"];
@@ -201,8 +199,8 @@ export default {
   components: {
     HeaderBar,
     Action,
-    ExtendedImage,
-    ModelFbx
+    ExtendedImage
+    // ModelFbx
   },
   data: function () {
     return {
@@ -271,16 +269,16 @@ export default {
         return "http://172.20.10.2:8082/#model=" + this.raw;
 
     },
-    fetchExternalHTML() {
-          axios.get('website/index.html', {headers: {
-                      // axios.get('http://172.20.10.2:8081/website/', {headers: {
-                  "Access-Control-Allow-Origin": "*"
-        }}).then(response => {
-              this.htmlContent = response.data;
-          }).catch(error => {
-              console.error('Error fetching external HTML:', error);
-          });
-    },
+    // fetchExternalHTML() {
+    //       axios.get('website/index.html', {headers: {
+    //                   // axios.get('http://172.20.10.2:8081/website/', {headers: {
+    //               "Access-Control-Allow-Origin": "*"
+    //     }}).then(response => {
+    //           this.htmlContent = response.data;
+    //       }).catch(error => {
+    //           console.error('Error fetching external HTML:', error);
+    //       });
+    // },
     deleteFile() {
       this.$store.commit("showHover", {
         prompt: "delete",
