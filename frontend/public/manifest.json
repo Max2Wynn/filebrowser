@@ -1,6 +1,6 @@
 {
-  "name": "File Browser",
-  "short_name": "File Browser",
+  "name": "文件管理系统",
+  "short_name": "文件管理系统",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

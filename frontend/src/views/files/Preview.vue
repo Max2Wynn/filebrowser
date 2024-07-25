@@ -80,7 +80,6 @@
         <!--            src="../../轻量化引擎/website#model=assets/models/solids.obj,assets/models/solids.mtl"-->
         <iframe
           v-else-if="
-            req.extension.toLowerCase() === '.ifc' ||
             req.extension.toLowerCase() === '.fbx' ||
             req.extension.toLowerCase() === '.glb' ||
             req.extension.toLowerCase() === '.gltf' ||
@@ -93,6 +92,15 @@
           depth="100%"
           class="pdf"
           style="border: 1px solid #eeeeee"
+        >
+        </iframe>
+        <iframe
+            v-else-if="req.extension.toLowerCase() === '.ifc'"
+            :src="get_image()"
+            width="100%"
+            depth="100%"
+            class="pdf"
+            style="border: 1px solid #eeeeee"
         >
         </iframe>
 
@@ -269,8 +277,8 @@ export default {
   methods: {
     get_image() {
         // return "http://10.0.20.6:8083/#model=" + this.raw;
-        return "http://172.17.0.1:8083/#model=" + this.raw;
-        // return "http://58.87.96.22:8083/#model=" + this.raw;
+        // return "http://172.17.0.1:8083/#model=" + this.raw;
+        return "http://58.87.96.22:8083/#model=" + this.raw;
     },
     // fetchExternalHTML() {
     //       axios.get('website/index.html', {headers: {

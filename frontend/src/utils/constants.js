@@ -1,4 +1,4 @@
-const name = window.FileBrowser.Name || "File Browser";
+const name = window.FileBrowser.Name || "文件管理系统";
 const disableExternal = window.FileBrowser.DisableExternal;
 const disableUsedPercentage = window.FileBrowser.DisableUsedPercentage;
 const baseURL = window.FileBrowser.BaseURL;
