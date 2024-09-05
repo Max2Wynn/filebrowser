@@ -5,8 +5,6 @@ import legacy from "@vitejs/plugin-legacy";
 import vue2 from "@vitejs/plugin-vue2";
 import { compression } from "vite-plugin-compression2";
 import pluginRewriteAll from "vite-plugin-rewrite-all";
-import { VuetifyResolver } from 'unplugin-vue-components/resolvers';
-import Components from 'unplugin-vue-components/vite';
 
 const plugins = [
   vue2(),
@@ -16,12 +14,6 @@ const plugins = [
   }),
   compression({ include: /\.js$/i, deleteOriginalAssets: true }),
   pluginRewriteAll(), // fixes 404 error with paths containing dot in dev server
-  // Components({
-  //   resolvers: [
-  //     // Vuetify
-  //     VuetifyResolver(),
-  //   ],
-  // }),
 ];
 
 const resolve = {
