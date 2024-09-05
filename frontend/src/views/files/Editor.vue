@@ -17,7 +17,7 @@
       />
     </header-bar>
 
-    <breadcrumbs base="/files" noLink />
+<!--    <breadcrumbs base="/files" noLink />-->
 
     <form id="editor"></form>
   </div>

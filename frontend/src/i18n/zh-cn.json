@@ -38,7 +38,8 @@
     "update": "更新",
     "upload": "上传",
     "openFile": "打开文件",
-    "continue": "继续"
+    "continue": "继续",
+    "discardChanges": "放弃"
   },
   "download": {
     "downloadFile": "下载文件",
@@ -162,7 +163,8 @@
     "uploadFiles": "正在上传 {files} ...",
     "uploadMessage": "选择上传选项。",
     "optionalPassword": "密码（选填，不填即无密码）",
-    "resolution": "分辨率"
+    "resolution": "分辨率",
+    "discardEditorChanges": "确定放弃保存？"
   },
   "search": {
     "images": "图像",

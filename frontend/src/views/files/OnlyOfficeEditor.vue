@@ -4,7 +4,7 @@
       <action icon="close" :label="$t('buttons.close')" @action="close()" />
       <title>{{ req.name }}</title>
     </header-bar>
-    <breadcrumbs  v-if="!onlyOffice.fullViewport" base="/files" noLink />
+<!--    <breadcrumbs  v-if="!onlyOffice.fullViewport" base="/files" noLink />-->
     <errors v-if="error" :errorCode="error.status" />
     <div id="editor">
       <div id="onlyoffice-editor"></div>
@@ -14,7 +14,7 @@
 
 <style scoped>
   #editor-container.full-viewport {
-    padding-top: 0;
+    //padding-top: 0;
   }
 </style>
 

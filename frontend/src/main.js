@@ -8,10 +8,16 @@ import Vue from "@/utils/vue";
 import { recaptcha, loginPage } from "@/utils/constants";
 import { login, validateLogin } from "@/utils/auth";
 import App from "@/App.vue";
+import Vuetify from "vuetify";
+import 'vuetify/dist/vuetify.min.css'
+import "@mdi/font/css/materialdesignicons.css";
+
+
 
 cssVars();
 
 sync(store, router);
+
 
 async function start() {
   try {
@@ -37,6 +43,7 @@ async function start() {
       check();
     });
   }
+  Vue.use(Vuetify)
 
   new Vue({
     el: "#app",
@@ -44,6 +51,7 @@ async function start() {
     router,
     i18n,
     template: "<App/>",
+    vuetify: new Vuetify(),
     components: { App },
   });
 }

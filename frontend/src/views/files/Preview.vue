@@ -48,13 +48,13 @@
       </template>
     </header-bar>
 
-    <div class="loading delayed" v-if="loading">
-      <div class="spinner">
-        <div class="bounce1"></div>
-        <div class="bounce2"></div>
-        <div class="bounce3"></div>
-      </div>
-    </div>
+<!--    <div class="loading delayed" v-if="loading">-->
+<!--      <div class="spinner">-->
+<!--        <div class="bounce1"></div>-->
+<!--        <div class="bounce2"></div>-->
+<!--        <div class="bounce3"></div>-->
+<!--      </div>-->
+<!--    </div>-->
     <template v-else>
       <div class="preview">
         <ExtendedImage v-if="req.type == 'image'" :src="raw"></ExtendedImage>
@@ -78,31 +78,60 @@
 
         <!--            src="http://172.20.10.2:8081/website#model="-->
         <!--            src="../../轻量化引擎/website#model=assets/models/solids.obj,assets/models/solids.mtl"-->
-        <iframe
-          v-else-if="
-            req.extension.toLowerCase() === '.fbx' ||
+<!--        <div v-else-if="            req.extension.toLowerCase() === '.fbx' ||-->
+<!--            req.extension.toLowerCase() === '.glb' ||-->
+<!--            req.extension.toLowerCase() === '.gltf' ||-->
+<!--            // req.extension.toLowerCase() === '.dae' ||-->
+<!--            // req.extension.toLowerCase() === '.bim' ||-->
+<!--            // req.extension.toLowerCase() === '.3dm'  ||-->
+<!--            req.extension.toLowerCase() === '.obj'">-->
+<!--          <iframe :src="get_image()" width="100%" depth="100%">-->
+
+<!--          </iframe>-->
+<!--        </div>-->
+
+        <div id="editor-container" v-else-if="
+                    req.extension.toLowerCase() === '.fbx' ||
             req.extension.toLowerCase() === '.glb' ||
             req.extension.toLowerCase() === '.gltf' ||
             // req.extension.toLowerCase() === '.dae' ||
             // req.extension.toLowerCase() === '.bim' ||
             // req.extension.toLowerCase() === '.3dm'  ||
-            req.extension.toLowerCase() === '.obj'"
-          :src="get_image()"
-          width="100%"
-          depth="100%"
-          class="pdf"
-          style="border: 1px solid #eeeeee"
-        >
-        </iframe>
-        <iframe
-            v-else-if="req.extension.toLowerCase() === '.ifc'"
-            :src="get_image()"
-            width="100%"
-            depth="100%"
-            class="pdf"
-            style="border: 1px solid #eeeeee"
-        >
-        </iframe>
+            req.extension.toLowerCase() === '.obj'">
+          <iframe
+              id="editor-container"
+              style="border: 1px solid #eeeeee"
+              :src="get_image()"
+              width="100%"
+              class="pdf"
+              depth="100%"
+          >
+          </iframe>
+
+        </div>
+<!--        <iframe-->
+<!--            id="editor-container"-->
+<!--          v-else-if="-->
+<!--            req.extension.toLowerCase() === '.fbx' ||-->
+<!--            req.extension.toLowerCase() === '.glb' ||-->
+<!--            req.extension.toLowerCase() === '.gltf' ||-->
+<!--            // req.extension.toLowerCase() === '.dae' ||-->
+<!--            // req.extension.toLowerCase() === '.bim' ||-->
+<!--            // req.extension.toLowerCase() === '.3dm'  ||-->
+<!--            req.extension.toLowerCase() === '.obj'"-->
+<!--          style="border: 1px solid #eeeeee"-->
+<!--          :src="get_image()"-->
+<!--          width="100%"-->
+<!--          class="pdf"-->
+<!--          depth="100%"-->
+<!--        >-->
+<!--        </iframe>-->
+<!--        <iframe-->
+<!--            v-else-if="req.extension.toLowerCase() === '.ifc'"-->
+<!--            :src="get_image()"-->
+<!--            onload=""-->
+<!--        >-->
+<!--        </iframe>-->
 
         <audio
           v-else-if="req.type == 'audio'"
@@ -165,28 +194,28 @@
       </div>
     </template>
 
-    <button
-      @click="prev"
-      @mouseover="hoverNav = true"
-      @mouseleave="hoverNav = false"
-      :class="{ hidden: !hasPrevious || !showNav }"
-      :aria-label="$t('buttons.previous')"
-      :title="$t('buttons.previous')"
-    >
-      <i class="material-icons">chevron_left</i>
-    </button>
-    <button
-      @click="next"
-      @mouseover="hoverNav = true"
-      @mouseleave="hoverNav = false"
-      :class="{ hidden: !hasNext || !showNav }"
-      :aria-label="$t('buttons.next')"
-      :title="$t('buttons.next')"
-    >
-      <i class="material-icons">chevron_right</i>
-    </button>
-    <link rel="prefetch" :href="previousRaw" />
-    <link rel="prefetch" :href="nextRaw" />
+<!--    <button-->
+<!--      @click="prev"-->
+<!--      @mouseover="hoverNav = true"-->
+<!--      @mouseleave="hoverNav = false"-->
+<!--      :class="{ hidden: !hasPrevious || !showNav }"-->
+<!--      :aria-label="$t('buttons.previous')"-->
+<!--      :title="$t('buttons.previous')"-->
+<!--    >-->
+<!--      <i class="material-icons">chevron_left</i>-->
+<!--    </button>-->
+<!--    <button-->
+<!--      @click="next"-->
+<!--      @mouseover="hoverNav = true"-->
+<!--      @mouseleave="hoverNav = false"-->
+<!--      :class="{ hidden: !hasNext || !showNav }"-->
+<!--      :aria-label="$t('buttons.next')"-->
+<!--      :title="$t('buttons.next')"-->
+<!--    >-->
+<!--      <i class="material-icons">chevron_right</i>-->
+<!--    </button>-->
+<!--    <link rel="prefetch" :href="previousRaw" />-->
+<!--    <link rel="prefetch" :href="nextRaw" />-->
   </div>
 </template>
 
